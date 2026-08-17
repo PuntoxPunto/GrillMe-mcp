@@ -1,0 +1,9 @@
+schema_version: 1
+project_id: grillme-mcp
+name: GrillMe MCP
+repository: PuntoxPunto/GrillMe-mcp
+canonical_ref: main
+project_type: chatgpt-plugin
+context_map: .punto/context-map.yaml
+pack_root: .punto/
+identity_node_id: grillme-mcp-identity

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRILL Chat</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <div id="app"><main><p class="eyebrow">GRILL CHAT APP</p><h1>Decision stress-test protocol for ChatGPT</h1><p class="lead">This endpoint exposes a read-only MCP tool that activates GRILL inside a normal ChatGPT conversation.</p><section class="card"><div class="status"><span id="dot" class="dot"></span><strong id="status">Checking endpoint…</strong></div><p id="detail">Testing the hosted MCP server.</p><button id="test">Run MCP self-test</button></section><section class="card"><h2>Use in ChatGPT</h2><ol><li>Connect this deployment as a custom app using its <code>/api/mcp</code> endpoint.</li><li>In a normal Chat conversation, invoke <code>@GRILL</code>.</li><li>Give it the plan, decision, architecture, or idea you want stress-tested.</li></ol></section></main></div>
+    <script type="module" src="./src/main.ts"></script>
+</body>
+</html>

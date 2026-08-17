@@ -1,0 +1,42 @@
+# Tests
+
+## Test 1 - Pass proven ChatGPT legacy compatibility scan [sanity]
+Viewport: desktop
+Covers: GET /api/mcp rejection, legacy initialize, tools/list, resources/list, tools/call, GRILL metadata
+Description: Verifies GRILL follows the same legacy compatibility contract as the working Human Review MCP deployment.
+Steps:
+1. Click "Run MCP self-test"
+2. Wait for the diagnostic status to finish
+3. Read the visible result message
+Expected: The page shows "MCP endpoint ready" and confirms GRILL is noauth, model-visible, read-only, and has an output schema.
+
+## Test 2 - Surface legacy scan failures visibly
+Viewport: desktop
+Covers: POST /api/mcp failure handling, user-visible diagnostic error guardrail
+Description: Verifies connector-level failures do not fail silently in the diagnostic page.
+QA Faults:
+```json
+[
+  {
+    "method": "POST",
+    "path": "/api/mcp",
+    "status": 500,
+    "body_json": { "error": "simulated_mcp_failure" }
+  }
+]
+```
+Steps:
+1. Click "Run MCP self-test"
+2. Wait for the diagnostic status to finish
+3. Read the visible result message
+Expected: The page shows "MCP endpoint error" rather than reporting readiness.
+
+## Test 3 - Run compatibility self-test on mobile
+Viewport: mobile
+Covers: mobile diagnostic workflow, GRILL discovery result visibility
+Description: Verifies the same MCP diagnostic workflow works from a narrow viewport.
+Steps:
+1. Click "Run MCP self-test"
+2. Wait for the diagnostic status to finish
+3. Read the visible result message
+Expected: The page shows a visible final MCP diagnostic result without requiring developer tools.
