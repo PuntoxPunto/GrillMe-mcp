@@ -1,0 +1,5 @@
+interface:
+  display_name: "GRILL"
+  short_description: "Stress-test decisions before execution"
+policy:
+  allow_implicit_invocation: false
